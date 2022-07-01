@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Employee>
+
+@{
+	ViewBag.Title = "Home Page";
+}
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Department</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var emoloyee in @Model)
+		{
+			<tr>
+				<td>@emoloyee.Name</td>
+				<td>@emoloyee.Email</td>
+				<td>@emoloyee.Department</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
