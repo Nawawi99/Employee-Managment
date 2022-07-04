@@ -4,23 +4,20 @@
 	ViewBag.Title = "Home Page";
 }
 
-<table>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Email</th>
-			<th>Department</th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var emoloyee in @Model)
-		{
-			<tr>
-				<td>@emoloyee.Name</td>
-				<td>@emoloyee.Email</td>
-				<td>@emoloyee.Department</td>
-			</tr>
-		}
-	</tbody>
-</table>
+<div class="card-group text-center">
+    @foreach (var employee in Model)
+    {
+    <div class="card m-1" style="width: 300px;">
+        <img src="/images/bug.jpg" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <h5 class="card-title">@employee.Name</h5>
+            <h6 class="card-text">@employee.Department</h6>
+            <p class="card-text">@employee.Email</p>
+            <a asp-controller="Home" asp-action="Details" asp-route-id="@employee.Id" class="btn btn-primary">View</a>
+            <a href="#" class="btn btn-primary">Edit</a>
+            <a href="#" class="btn btn-primary">Delete</a>
+        </div>
+    </div>
+    }
+</div>
 

@@ -7,12 +7,7 @@ builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
 
 var app = builder.Build();
 
-var config = app.Configuration;
-var env = app.Environment;
-
-
-
-if (env.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
