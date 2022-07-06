@@ -7,11 +7,17 @@
         {
             _employees = new List<Employee>()
             {
-                new Employee(){Id=1, Name="Ahmad", Email="Ahmad@gmail.com", Department="IT"},
-                new Employee(){Id=2, Name="wesam", Email="wwww@gmail.com", Department="Supp"},
-                new Employee(){Id=4, Name="Diesel", Email="dddd@gmail.com", Department="HR"},
-                new Employee(){Id=5, Name="kahled", Email="kkkk@gmail.com", Department="ENG"}
+                new Employee(){Id=1, Name="Ahmad", Email="Ahmad@gmail.com", Department=Department.IT},
+                new Employee(){Id=2, Name="wesam", Email="wwww@gmail.com", Department=Department.HR},
+                new Employee(){Id=4, Name="Diesel", Email="dddd@gmail.com", Department=Department.Marketing},
+                new Employee(){Id=5, Name="kahled", Email="kkkk@gmail.com", Department=Department.IT}
             };
+        }
+
+        public void AddEmployee(Employee employee)
+        {
+            employee.Id = _employees.Max(emp => emp.Id) + 1;
+            _employees.Add(employee);
         }
 
         public IEnumerable<Employee> GetAllEmployees()

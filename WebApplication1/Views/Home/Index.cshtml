@@ -4,20 +4,22 @@
 	ViewBag.Title = "Home Page";
 }
 
-<div class="card-group text-center">
+<div class="card-group d-flex align-items-center justify-content-center">
     @foreach (var employee in Model)
     {
-    <div class="card m-1" style="width: 300px;">
-        <img src="/images/noimage.jpg" class="card-img-top">
-        <div class="card-body text-center">
-            <h5 class="card-title">@employee.Name</h5>
-            <h6 class="card-text">@employee.Department</h6>
-            <p class="card-text">@employee.Email</p>
-            <a asp-controller="Home" asp-action="Details" asp-route-id="@employee.Id" class="btn btn-primary">View</a>
-            <a href="#" class="btn btn-primary">Edit</a>
-            <a href="#" class="btn btn-primary">Remove</a>
+        <div class="row row-cols-6 text-center">
+            <div class="card m-3" style="width: 400px;">
+                <img src="/images/noimage.jpg" class="card-img-top">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@employee.Name</h5>
+                    <h6 class="card-text">@employee.Department</h6>
+                    <p class="card-text">@employee.Email</p>
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@employee.Id" class="btn btn-primary m-1">View</a>
+                    <a href="#" class="btn btn-primary m-1">Edit</a>
+                    <a href="#" class="btn btn-primary m-1">Remove</a>
+                </div>
+            </div>
         </div>
-    </div>
     }
 </div>
 

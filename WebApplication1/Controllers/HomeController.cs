@@ -23,7 +23,7 @@ namespace WebApplication1.Controllers
         }
 
         /*[Route("{id?}")]*/
-        public ViewResult Details(int? id)
+        public IActionResult Details(int? id)
         {
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
@@ -31,6 +31,19 @@ namespace WebApplication1.Controllers
                 PageTitle = "Employee Details"
             };
             return View(homeDetailsViewModel);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Employee employee)
+        {
+            _employeeRepository.AddEmployee(employee);
+            return RedirectToAction("Details", new { id = employee.Id });
         }
     }
 }
