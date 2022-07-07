@@ -42,8 +42,12 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Create(Employee employee)
         {
-            _employeeRepository.AddEmployee(employee);
-            return RedirectToAction("Details", new { id = employee.Id });
+            if (ModelState.IsValid)
+            {
+                _employeeRepository.AddEmployee(employee);
+                return RedirectToAction("Details", new { id = employee.Id });
+            }
+            return View();
         }
     }
 }
