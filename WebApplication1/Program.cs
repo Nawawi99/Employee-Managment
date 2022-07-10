@@ -1,9 +1,12 @@
+using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContextPool<AppDbContext>(options =>options.UseSqlServer(
+    builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+builder.Services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
 
 var app = builder.Build();
 

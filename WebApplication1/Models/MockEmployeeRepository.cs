@@ -14,10 +14,21 @@
             };
         }
 
-        public void AddEmployee(Employee employee)
+        public Employee AddEmployee(Employee employee)
         {
             employee.Id = _employees.Max(emp => emp.Id) + 1;
             _employees.Add(employee);
+            return employee;
+        }
+
+        public Employee DeleteEmployee(int id)
+        {
+            Employee employee = _employees.FirstOrDefault(emp => emp.Id == id);
+            if(employee != null)
+            {
+                _employees.Remove(employee);
+            }
+            return employee;
         }
 
         public IEnumerable<Employee> GetAllEmployees()
@@ -28,6 +39,18 @@
         public Employee GetEmployeeById(int id)
         {
             return _employees.FirstOrDefault(emp => emp.Id == id) ?? _employees[0];
+        }
+
+        public Employee UpdateEmployee(Employee employeeChanges)
+        {
+            Employee employee = _employees.FirstOrDefault(emp => emp.Id == employeeChanges.Id);
+            if(employee != null)
+            {
+                employee.Name = employeeChanges.Name;
+                employee.Department = employeeChanges.Department;
+                employee.Email = employeeChanges.Email;
+            }
+            return employee;
         }
     }
 }

@@ -16,5 +16,6 @@ namespace WebApplication1.Models
         public string Email { get; set; }
         [Required]
         public Department Department { get; set; }
+        public string PhotoPath { get; set; }
     }
 }
