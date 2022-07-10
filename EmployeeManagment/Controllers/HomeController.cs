@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Models;
-using WebApplication1.ViewModels;
+﻿using EmployeeManagment.Models;
+using EmployeeManagment.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
-namespace WebApplication1.Controllers
+namespace EmployeeManagment.Controllers
 {
     /*[Route("[controller]/[action]")]*/
     public class HomeController : Controller

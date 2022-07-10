@@ -1,6 +1,6 @@
-﻿using WebApplication1.Models;
+﻿using EmployeeManagment.Models;
 
-namespace WebApplication1.ViewModels
+namespace EmployeeManagment.ViewModels
 {
     public class HomeDetailsViewModel
     {

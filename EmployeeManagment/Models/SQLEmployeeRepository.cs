@@ -1,4 +1,6 @@
-﻿namespace WebApplication1.Models
+﻿using EmployeeManagment.Data;
+
+namespace EmployeeManagment.Models
 {
     public class SQLEmployeeRepository : IEmployeeRepository
     {

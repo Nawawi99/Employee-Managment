@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Models
+﻿namespace EmployeeManagment.Models
 {
     public class MockEmployeeRepository : IEmployeeRepository
     {
@@ -24,7 +24,7 @@
         public Employee DeleteEmployee(int id)
         {
             Employee employee = _employees.FirstOrDefault(emp => emp.Id == id);
-            if(employee != null)
+            if (employee != null)
             {
                 _employees.Remove(employee);
             }
@@ -44,7 +44,7 @@
         public Employee UpdateEmployee(Employee employeeChanges)
         {
             Employee employee = _employees.FirstOrDefault(emp => emp.Id == employeeChanges.Id);
-            if(employee != null)
+            if (employee != null)
             {
                 employee.Name = employeeChanges.Name;
                 employee.Department = employeeChanges.Department;
