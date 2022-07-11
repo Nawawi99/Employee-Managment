@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EmployeeManagment.Models
 {
@@ -15,7 +16,6 @@ namespace EmployeeManagment.Models
         [Display(Name = "Email Address")]
         public string Email { get; set; }
         [Required]
-        public Department Department { get; set; }
-        public string PhotoPath { get; set; }
+        public Department? Department { get; set; }
     }
 }

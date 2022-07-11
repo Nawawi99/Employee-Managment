@@ -38,7 +38,7 @@ namespace EmployeeManagment.Controllers
         {
             return View();
         }
-
+        
         [HttpPost]
         public IActionResult Create(Employee employee)
         {
@@ -48,6 +48,39 @@ namespace EmployeeManagment.Controllers
                 return RedirectToAction("Details", new { id = employee.Id });
             }
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            if(id == 0)
+            {
+                return NotFound();
+            }
+            Employee employee = _employeeRepository.GetEmployeeById(id);
+            return View(employee);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                _employeeRepository.UpdateEmployee(employee);
+                return RedirectToAction("Details", new { id = employee.Id });
+            }
+            return RedirectToAction("Edit", employee.Id);
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            if(id == 0)
+            {
+                return NotFound();
+            }
+            _employeeRepository.DeleteEmployee(id);
+            return RedirectToAction("Index");
         }
     }
 }

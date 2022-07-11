@@ -1,6 +1,7 @@
 ﻿using EmployeeManagment.Data;
+using EmployeeManagment.Models;
 
-namespace EmployeeManagment.Models
+namespace EmployeeManagment.Repository
 {
     public class SQLEmployeeRepository : IEmployeeRepository
     {
@@ -40,7 +41,7 @@ namespace EmployeeManagment.Models
             employee.Name = employeeChanges.Name;
             employee.Email = employeeChanges.Email;
             employee.Department = employeeChanges.Department;
-            _context.Employees.Update(employee);
+            _context.SaveChanges();
             return employee;
         }
     }
