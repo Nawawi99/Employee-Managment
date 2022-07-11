@@ -1,5 +1,6 @@
 ﻿using EmployeeManagment.Data;
 using EmployeeManagment.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeManagment.Repository
 {
@@ -35,14 +36,13 @@ namespace EmployeeManagment.Repository
             return _context.Employees.Find(id);
         }
 
-        public Employee UpdateEmployee(Employee employeeChanges)
+        public void UpdateEmployee(Employee employeeChanges)
         {
             Employee employee = _context.Employees.Find(employeeChanges.Id);
             employee.Name = employeeChanges.Name;
             employee.Email = employeeChanges.Email;
             employee.Department = employeeChanges.Department;
             _context.SaveChanges();
-            return employee;
         }
     }
 }

@@ -41,7 +41,7 @@
             return _employees.FirstOrDefault(emp => emp.Id == id) ?? _employees[0];
         }
 
-        public Employee UpdateEmployee(Employee employeeChanges)
+        public void UpdateEmployee(Employee employeeChanges)
         {
             Employee employee = _employees.FirstOrDefault(emp => emp.Id == employeeChanges.Id);
             if (employee != null)
@@ -50,7 +50,6 @@
                 employee.Department = employeeChanges.Department;
                 employee.Email = employeeChanges.Email;
             }
-            return employee;
         }
     }
 }
